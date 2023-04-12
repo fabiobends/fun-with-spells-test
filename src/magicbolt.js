@@ -7,8 +7,12 @@ class MagicBolt extends Spell {
     // be on top of all the zombies
     this.boltGroup = this.game.add.group();
 
-    // create 3 magic bolts
-    for(var i = 0; i < 3; i++) {
+    this.updateZombies();
+
+    // create a number of magic bolts, it will be the length of targetIndices
+    // otherwise 3
+    const boltLength = this.targetIndices.length || 3;
+    for(var i = 0; i < boltLength; i++) {
       let bolt = this.game.add.sprite(0, 0, 'bolt');
       // add the animations in
       // one for moving and another when it hits their targets
@@ -28,10 +32,18 @@ class MagicBolt extends Spell {
       this.boltGroup.add(bolt);
     }
   }
+
+  updateZombies() {
+    if (this.chosenZombies === undefined || this.chosenZombies.length === 0) {
+      this.chosenZombies = this.targetIndices.map(number => this.zombies[number]);
+    }
+  }
+
   perform() {
     this.group.forEach((bolt) => {
       // pick a random zombie to target
-      let target = this.game.rnd.pick(this.zombies.filter(function(e) { return e.alive; }));
+      let target = this.chosenZombies.pop();
+      this.updateZombies();
       // flag it so it doesn't get pick again
       target.alive = false;
 
