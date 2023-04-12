@@ -1,23 +1,33 @@
-# Phaser Isometric Demo
+# Fun with spells
 
-[![Build Status](https://travis-ci.org/mmermerkaya/phaser-isometric-demo.svg?branch=master)](https://travis-ci.org/mmermerkaya/phaser-isometric-demo)
-[![Dependency Status](https://david-dm.org/mmermerkaya/phaser-isometric-demo.svg)](https://david-dm.org/mmermerkaya/phaser-isometric-demo)
-[![devDependency Status](https://david-dm.org/mmermerkaya/phaser-isometric-demo/dev-status.svg)](https://david-dm.org/mmermerkaya/phaser-isometric-demo#info=devDependencies)
+This is an adaptation of a game available at this [link](https://programmingmind.net/phaser/fun-with-spells-using-phaser).
 
-A demo using [Phaser](http://phaser.io/) and [Phaser Isometric Plugin](http://rotates.org/phaser/iso/).
+## Visual result
 
-[Click here](https://mmermerkaya.github.io/phaser-isometric-demo/) to see it in action.
+<p align="center">
+ <img src=".github/fun-with-spells.gif" alt="fun with spells" width="500" />
+</p>
 
-## Installation
+## Improvements
 
-```
-git clone https://github.com/mmermerkaya/phaser-isometric-demo.git
-cd phaser-isometric-demo
+- New attack called "Slash" that attack 4 random zombies
+- "Magic Bolt" aimed at an array of zombies instead of random ones.
+
+
+## Get started
+
+- Make sure you have Node.js installed in your machine.
+- After clone this repo, run the following commands:
+
+```bash
 npm install
+npm run dev
 ```
 
-## Usage
-
-1. Run `npm start`.
-2. On a different terminal, run `http-server build/`.
-  * You need `http-server` package for this. Install with `npm install -g http-server`.
+If you wanna run the build version of the app, run 
+```bash
+# on terminal
+npm start
+# then a different terminal run
+node server.js
+```
