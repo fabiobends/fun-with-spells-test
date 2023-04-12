@@ -1,10 +1,5 @@
 import Spell from 'spell';
 class IceCage extends Spell {
-
-  constructor(game, x, y, key, cooldown, duration) {
-    super(game, x, y, key, cooldown, duration);
-  }
-
   create() {
     // the ice cage spells spawn 3 ice cages
     for(var i = 0; i < 3; i++) {

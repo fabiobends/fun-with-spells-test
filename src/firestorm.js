@@ -1,10 +1,5 @@
 import Spell from 'spell';
 class FireStorm extends Spell {
-
-  constructor(game, x, y, key, cooldown, duration) {
-    super(game, x, y, key, cooldown, duration);
-  }
-
   create() {
     for(var i = 0; i < 5; i++) {
       // setup an emitter for each fireball for the smoke trail

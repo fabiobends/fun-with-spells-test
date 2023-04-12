@@ -1,9 +1,6 @@
 import Spell from 'spell';
 
 class MagicBolt extends Spell {
-  constructor(game, x, y, key, cooldown, duration) {
-    super(game, x, y, key, cooldown, duration);
-  }
   create() {
     // we create an actual Phaser.Group
     // because we want these sprites to

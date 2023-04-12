@@ -1,9 +1,6 @@
 import Spell from 'spell';
 
 class LightningBolt extends Spell {
-    constructor(game, x, y, key, cooldown, duration) {
-        super(game, x, y, key, cooldown, duration);
-    }
     create() {
         let lightningBolt = this.game.add.sprite(0, 0, 'bolt');
         let animation = lightningBolt.animations.add('move', [20, 21, 22, 23, 24, 25, 26, 27, 28, 29]);

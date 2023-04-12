@@ -71,12 +71,47 @@ class DemoState extends GameState {
       }
     }
 
-    // icon position, icon key, cooldown, duration
-    let magicBolt = new MagicBolt(this.game, 50, 430, 'iconMagicBolt', 2500)
-    let fireWall = new FireWall(this.game, 130, 430, 'iconFireWall', 5000, 3000)
-    let lightningBolt = new LightningBolt(this.game, 210, 430, 'iconLightningBolt', 2000)
-    let iceCage = new IceCage(this.game, 290, 430, 'iconIceCage', 3000, 2000)
-    let fireStorm = new FireStorm(this.game, 370, 430, 'iconFireStorm', 6000)
+    // icon position, icon, cooldown, duration and zombies
+    const magicBolt = new MagicBolt({
+      game: this.game,
+      x: 50,
+      y: 430,
+      icon: 'iconMagicBolt',
+      cooldown: 2500,
+      zombies: this.zombies,
+    });
+    const fireWall = new FireWall({
+      game: this.game,
+      x: 130,
+      y: 430,
+      icon: 'iconFireWall',
+      cooldown: 5000,
+      duration: 3000,
+    });
+    const lightningBolt = new LightningBolt({
+      game: this.game,
+      x: 210,
+      y: 430,
+      icon: 'iconLightningBolt',
+      cooldown: 2000,
+      zombies: this.zombies,
+    });
+    const iceCage = new IceCage({
+      game: this.game,
+      x: 290,
+      y: 430,
+      icon: 'iconIceCage',
+      cooldown: 3000,
+      duration: 2000,
+      zombies: this.zombies,
+    });
+    const fireStorm = new FireStorm({
+      game: this.game,
+      x: 370,
+      y: 430,
+      icon: 'iconFireStorm',
+      cooldown: 6000,
+    });
 
     // store a reference for these because we need to call their update method
     this.magicBolt = magicBolt
@@ -84,12 +119,6 @@ class DemoState extends GameState {
 
     // we need a reference to the player's position
     magicBolt.player = this.player
-
-    // for these spells, we need a reference to the list of zombies
-    // so we can target them
-    iceCage.zombies = this.zombies
-    magicBolt.zombies = this.zombies
-    lightningBolt.zombies = this.zombies
 
     // create keyboard and touch inputs
     this.game.input.addPointer()

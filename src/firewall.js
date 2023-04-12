@@ -1,10 +1,5 @@
 import Spell from 'spell';
 class FireWall extends Spell {
-
-  constructor(game, x, y, key, cooldown, duration) {
-    super(game, x, y, key, cooldown, duration);
-  }
-
   create() {
   	// create a group for the burn marks so it appears below all the flames
   	this.burnMarksGroup = this.game.add.group();
