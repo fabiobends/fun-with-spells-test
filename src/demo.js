@@ -4,6 +4,7 @@ import FireWall from 'firewall';
 import LightningBolt from 'lightningbolt';
 import IceCage from 'icecage';
 import FireStorm from 'firestorm';
+import Slash from 'slash';
 import Player from 'player'
 class DemoState extends GameState {
 
@@ -19,6 +20,7 @@ class DemoState extends GameState {
     this.game.load.image('iconLightningBolt', 'assets/icons/Thunder.png')
     this.game.load.image('iconIceCage', 'assets/icons/Blizzard.png')
     this.game.load.image('iconFireStorm', 'assets/icons/fire-arrows-3.png')
+    this.game.load.image('iconSlash', 'assets/icons/slash-icon.png')
 
     this.game.load.atlas(
       'player',
@@ -45,6 +47,11 @@ class DemoState extends GameState {
       'ice',
       'assets/spells/ice/atlas.png',
       'assets/spells/ice/atlas.json'
+    )
+    this.game.load.atlas(
+      'slash',
+      'assets/spells/slash/atlas.png',
+      'assets/spells/slash/atlas.json',
     )
   }
   create() {
@@ -112,6 +119,15 @@ class DemoState extends GameState {
       icon: 'iconFireStorm',
       cooldown: 6000,
     });
+    const slash = new Slash({
+      game: this.game,
+      x: 450,
+      y: 430,
+      icon: 'iconSlash',
+      cooldown: 3000,
+      duration: 3000,
+      zombies: this.zombies,
+    });
 
     // store a reference for these because we need to call their update method
     this.magicBolt = magicBolt
@@ -127,6 +143,7 @@ class DemoState extends GameState {
     this.enableInput(lightningBolt, Phaser.KeyCode.THREE)
     this.enableInput(iceCage, Phaser.KeyCode.FOUR)
     this.enableInput(fireStorm, Phaser.KeyCode.FIVE)
+    this.enableInput(slash, Phaser.KeyCode.SIX)
   }
 
   enableInput(spell, keycode) {
@@ -193,11 +210,13 @@ class DemoState extends GameState {
   render() {
     super.render()
 
-    this.game.debug.text('Press 1 - magic bolt', 400, 400)
-    this.game.debug.text('2 - fire wall', 430, 416)
-    this.game.debug.text('3 - lightning bolt', 430, 432)
-    this.game.debug.text('4 - ice cage', 430, 448)
-    this.game.debug.text('5 - fire storm', 430, 464)
+    this.game.debug.text('Press:', 550, 384);
+    this.game.debug.text('1 - magic bolt', 550, 400);
+    this.game.debug.text('2 - fire wall', 550, 416);
+    this.game.debug.text('3 - lightning bolt', 550, 432);
+    this.game.debug.text('4 - ice cage', 550, 448);
+    this.game.debug.text('5 - fire storm', 550, 464);
+    this.game.debug.text('6 - slash', 550, 480);
   }
 }
 export default DemoState;
