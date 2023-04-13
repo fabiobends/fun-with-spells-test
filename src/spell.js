@@ -3,7 +3,7 @@ class Spell {
   // icon - key
   // cooldown - amount in seconds before the spell can be cast again
   // duration - amount in seconds for spells with duration eg, enchantments
-  constructor({ game, x, y, icon, cooldown, duration, zombies }) {
+  constructor({ game, x, y, icon, cooldown, duration, zombies, targetIndices }) {
     // we are not using the Phaser's group class
     // because we want the z-order to work with some sprites
     // so many of the spell sprites are added to the game.world
@@ -14,6 +14,8 @@ class Spell {
     this.active = true;
     // zombies that might target by the spell
     this.zombies = zombies;
+    // zombie whose indices that should be attacked by the spell
+    this.targetIndices = targetIndices;
     // cooldown timer
     this.cooldown = cooldown;
     // some spells, like firewall have a duration

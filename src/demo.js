@@ -6,6 +6,12 @@ import IceCage from 'icecage';
 import FireStorm from 'firestorm';
 import Slash from 'slash';
 import Player from 'player'
+
+// target zombies when using Magic Bolt
+// this array may come from a different implementation, user's interaction, etc.
+// to make simple the example, it is a constant array in this file
+const TARGET_ZOMBIES = [5, 6, 7, 8];
+
 class DemoState extends GameState {
 
   preload() {
@@ -86,6 +92,7 @@ class DemoState extends GameState {
       icon: 'iconMagicBolt',
       cooldown: 2500,
       zombies: this.zombies,
+      targetIndices: TARGET_ZOMBIES,
     });
     const fireWall = new FireWall({
       game: this.game,
